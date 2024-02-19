@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  nginx:
+    restart: always
+    image: nginx:latest
+    ports:
+      - "80:80"
+    networks:
+      - nginx-network
+    volumes:
+      - ./config/:/etc/nginx/conf.d/:ro
+
+networks:
+  nginx-network:
+    external: true
